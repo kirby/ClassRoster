@@ -34,5 +34,15 @@ class ViewControllerTests: XCTestCase {
     func test_ViewControllerInit_roster_countGtZero() {
         XCTAssert(controller.roster.count == 10, "default roster count should be 10")
     }
+    
+    // this isn't a real test, no assertion, just a helper for me
+    func test_ViewControllerInit_printRoster() {
+        self.controller.printRoster()
+    }
+    
+    func test_ViewController_loadRosterFromPlist() {
+        self.controller.loadRosterFromPlist()
+        XCTAssertNotNil(self.controller.roster, "roster should not be nil")
+    }
 
 }

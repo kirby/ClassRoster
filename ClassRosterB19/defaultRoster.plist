@@ -14,5 +14,53 @@
 		<key>last</key>
 		<string>Johnson</string>
 	</dict>
+    <dict>
+        <key>first</key>
+        <string>Victor</string>
+        <key>last</key>
+        <string>Adu</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Kirby</string>
+        <key>last</key>
+        <string>Shabaga</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Collin</string>
+        <key>last</key>
+        <string>Atherton</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Jeff</string>
+        <key>last</key>
+        <string>Gayle</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Dan</string>
+        <key>last</key>
+        <string>Hoang</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Mike</string>
+        <key>last</key>
+        <string>Tirenin</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Alex</string>
+        <key>last</key>
+        <string>Rice</string>
+    </dict>
+    <dict>
+        <key>first</key>
+        <string>Leonardo</string>
+        <key>last</key>
+        <string>Lee</string>
+    </dict>
 </array>
 </plist>

@@ -27,13 +27,10 @@ class ViewController: UIViewController {
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
-        for person in defaultRoster {
-//            println("person = \(person)")
-            roster.append(Person(firstName: person[0], lastName: person[1]))
-//            println("person.fullName = \(p.fullName())")
-        }
-//        let path = NSBundle.mainBundle().pathForResource("defaultRoster", ofType: "plist")
-//        let dict = NSArray(contentsOfFile: path)
+        self.roster = loadRosterFromPlist()
+//        for person in defaultRoster {
+//            roster.append(Person(firstName: person[0], lastName: person[1]))
+//        }
     }
                             
     override func viewDidLoad() {
@@ -44,6 +41,30 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func printRoster() {
+        for person in roster {
+            println("\(person.fullName())")
+        }
+    }
+    
+    func loadRosterFromPlist() -> Array<Person> {
+        
+        var roster = Array<Person>()
+        let path = NSBundle.mainBundle().pathForResource("defaultRoster", ofType: "plist")
+        let dict = NSArray(contentsOfFile: path)
+        
+        for object in dict {
+            if let dictionary = object as? Dictionary<String, String> {
+                let firstName = dictionary["first"]
+                let lastName = dictionary["last"]
+                roster.append(Person(firstName: firstName!, lastName: lastName!))
+            }
+        }
+        
+        //self.roster = roster
+        return roster
     }
 
 }
