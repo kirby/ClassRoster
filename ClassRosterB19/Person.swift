@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class Person {
     
     var firstName : String
-    var middleName = "middle"
     var lastName : String
+    var image : UIImage?
     
     init(firstName: String, lastName : String) {
         self.firstName = firstName
@@ -20,7 +21,7 @@ class Person {
     }
     
     func fullName() -> String {
-        return self.firstName + self.lastName
+        return self.firstName + " " + self.lastName
     }
     
 }

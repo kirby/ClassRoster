@@ -21,28 +21,41 @@ class PersonTests: XCTestCase {
         super.tearDown()
     }
 
-    func testPersonCreation() {
+    func test_Person_init_NotNil() {
         var person = Person(firstName: "Kirby", lastName: "Shabaga")
         XCTAssertNotNil(person, "person can not be created")
     }
     
-    func testFirstName() {
-        var person = Person(firstName: "Kirby", lastName: "Shabaga")
-        XCTAssertNotNil(person.firstName, "person's first name property could not be created")
-    }
-    
-    func testFirstNameInit() {
-        var person = Person(firstName:"Kirby", lastName:"Shabaga")
-        XCTAssertNotNil(person, "person can not be created")
-    }
-    
-    func testFullName() {
+    func test_PersonInit_firtName_equal() {
         var first = "Kirby"
         var last = "Shabaga"
-        
         var person = Person(firstName: first, lastName: last)
-        
-        XCTAssertEqual(person.fullName(), first + last, "fullName is not matching")
+        XCTAssertEqual(person.firstName, first, "person.firstName != firstName")
+    }
+    
+    func test_PersonInit_lastName_equal() {
+        var first = "Kirby"
+        var last = "Shabaga"
+        var person = Person(firstName: first, lastName: last)
+        XCTAssertEqual(person.lastName, last, "person.lastName != lastName")
+    }
+    
+    func test_PersonInit_image_nil() {
+        var person = Person(firstName: "Kirby", lastName: "Shabaga")
+        XCTAssertNil(person.image, "image should be nil")
+    }
+    
+    func test_Person_FullName_equal() {
+        var first = "Kirby"
+        var last = "Shabaga"
+        var person = Person(firstName: first, lastName: last)
+        XCTAssertEqual(person.fullName(), first + " " + last, "fullName is not matching")
+    }
+    
+    func test_Person_Image_NotNil() {
+        var person = Person(firstName: "Kirby", lastName: "Shabaga")
+        person.image = UIImage()
+        XCTAssertNotNil(person.image, "image is not being set")
     }
 
 }
