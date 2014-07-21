@@ -8,9 +8,14 @@
 
 import UIKit
 import XCTest
+//import ClassRosterB19
 
 class PersonTests: XCTestCase {
 
+    let first = "Kirby"
+    let last = "Shabaga"
+    var person = Person(firstName: "Kirby", lastName: "Shabaga")
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,39 +27,28 @@ class PersonTests: XCTestCase {
     }
 
     func test_Person_init_NotNil() {
-        var person = Person(firstName: "Kirby", lastName: "Shabaga")
-        XCTAssertNotNil(person, "person can not be created")
+        XCTAssertNotNil(self.person, "person object can not be created")
     }
     
     func test_PersonInit_firtName_equal() {
-        var first = "Kirby"
-        var last = "Shabaga"
-        var person = Person(firstName: first, lastName: last)
-        XCTAssertEqual(person.firstName, first, "person.firstName != firstName")
+        XCTAssertEqual(self.person.firstName, self.first, "firstName property is not equal to first name after object creation")
     }
     
     func test_PersonInit_lastName_equal() {
-        var first = "Kirby"
-        var last = "Shabaga"
-        var person = Person(firstName: first, lastName: last)
-        XCTAssertEqual(person.lastName, last, "person.lastName != lastName")
+        XCTAssertEqual(self.person.lastName, self.last, "lastName property is not equal to last name after object creation")
     }
     
     func test_PersonInit_image_nil() {
-        var person = Person(firstName: "Kirby", lastName: "Shabaga")
-        XCTAssertNil(person.image, "image should be nil")
+        XCTAssertNil(self.person.image, "image property should be nil after object creation")
     }
     
     func test_Person_FullName_equal() {
-        var first = "Kirby"
-        var last = "Shabaga"
-        var person = Person(firstName: first, lastName: last)
-        XCTAssertEqual(person.fullName(), first + " " + last, "fullName is not matching")
+        XCTAssertEqual(self.person.fullName(), self.first + " " + self.last, "fullName property does not equal firstName, lastName after object creation")
     }
     
-    func test_Person_Image_NotNil() {
-        var person = Person(firstName: "Kirby", lastName: "Shabaga")
-        person.image = UIImage()
+    func test_Person_setImage_NotNil() {
+        var image = UIImage(named: "linkedin.png")
+        self.person.image = image
         XCTAssertNotNil(person.image, "image is not being set")
     }
 

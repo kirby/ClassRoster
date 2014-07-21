@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>269A7B83-9DC2-4014-87CC-DC094B8BE88F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ClassRosterB19</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>57C10297-866A-4FD6-8182-042B6A25D22D</key>
+		<string>ssh://github.com/kirby/ClassRoster.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ClassRosterB19.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>57C10297-866A-4FD6-8182-042B6A25D22D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/kirby/ClassRoster.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>57C10297-866A-4FD6-8182-042B6A25D22D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>57C10297-866A-4FD6-8182-042B6A25D22D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ClassRosterB19</string>
+		</dict>
+	</array>
+</dict>
+</plist>

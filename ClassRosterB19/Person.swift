@@ -24,4 +24,9 @@ class Person {
         return self.firstName + " " + self.lastName
     }
     
+    func setImage(image : UIImage) {
+        self.image = image
+        // do something ?
+    }
+    
 }
