@@ -25,6 +25,8 @@
 		4ED41B3E197F0C2C006FC270 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8DA92197EFC6A00F13114 /* PersonDetailViewController.swift */; };
 		4ED41B40197F0F61006FC270 /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED41B3F197F0F61006FC270 /* PersonViewCell.swift */; };
 		4EE8286F197DBF3100A1F8BF /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B60DF197DBA4E00164263 /* linkedin.png */; };
+		4EECCC3A197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
+		4EECCC3B197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		4EB8DA92197EFC6A00F13114 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
 		4EBBEDF7197DC44900FD98E3 /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		4ED41B3F197F0F61006FC270 /* PersonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
+		4EECCC39197F198100CE74CA /* silhouette.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silhouette.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,7 @@
 		4EE8286E197DBCBA00A1F8BF /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				4EECCC39197F198100CE74CA /* silhouette.jpeg */,
 				4E7B60DF197DBA4E00164263 /* linkedin.png */,
 			);
 			name = assets;
@@ -271,6 +275,7 @@
 				4E6789A8197DC78700850132 /* defaultRoster.plist in Resources */,
 				4E7312AD197D877C0093C2F2 /* Main.storyboard in Resources */,
 				4E7312AF197D877C0093C2F2 /* Images.xcassets in Resources */,
+				4EECCC3A197F198100CE74CA /* silhouette.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +285,7 @@
 			files = (
 				4EBBEDF6197DC1C800FD98E3 /* linkedin.png in Resources */,
 				4E6789A9197DC80A00850132 /* defaultRoster.plist in Resources */,
+				4EECCC3B197F198100CE74CA /* silhouette.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

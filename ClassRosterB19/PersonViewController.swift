@@ -17,7 +17,7 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
         super.init(coder: aDecoder)
         roster = loadRosterFromPlist()
         // hack
-        roster[3].image = UIImage(named: "linkedin.png")
+        //roster[3].image = UIImage(named: "linkedin.png")
     }
                             
     override func viewDidLoad() {
@@ -49,7 +49,10 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
             if let person = object as? Dictionary<String, String> {
                 let firstName = person["first"] as String
                 let lastName = person["last"] as String
-                roster.append(Person(firstName: firstName, lastName: lastName))
+                let image = person["image"] as String
+                var person = Person(firstName: firstName, lastName: lastName)
+                person.setImage(UIImage(named: image))
+                roster.append(person)
             }
         }
         return roster
