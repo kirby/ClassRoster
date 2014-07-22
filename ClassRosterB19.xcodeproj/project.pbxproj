@@ -27,6 +27,7 @@
 		4EE8286F197DBF3100A1F8BF /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B60DF197DBA4E00164263 /* linkedin.png */; };
 		4EECCC3A197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
 		4EECCC3B197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
+		4EECCC3C197F1C9800CE74CA /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED41B3F197F0F61006FC270 /* PersonViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,6 +314,7 @@
 				4ED41B3E197F0C2C006FC270 /* PersonDetailViewController.swift in Sources */,
 				4E7312C8197D89C40093C2F2 /* PersonTests.swift in Sources */,
 				4EBBEDF8197DC44900FD98E3 /* ViewControllerTests.swift in Sources */,
+				4EECCC3C197F1C9800CE74CA /* PersonViewCell.swift in Sources */,
 				4E7312BB197D877C0093C2F2 /* ClassRosterB19Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
