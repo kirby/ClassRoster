@@ -29,4 +29,12 @@ class Person {
         // do something ?
     }
     
+    func hasImage() -> Bool {
+        if (image != nil) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }

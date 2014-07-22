@@ -51,5 +51,15 @@ class PersonTests: XCTestCase {
         self.person.image = image
         XCTAssertNotNil(person.image, "image is not being set")
     }
+    
+    func test_Person_hasImage_false() {
+        XCTAssertFalse(person.hasImage(), "person hasImage should not be true")
+    }
+    
+    func test_Person_hasImage_true() {
+        var image = UIImage(named: "linkedin.png")
+        self.person.image = image
+        XCTAssertTrue(person.hasImage(), "person hasImage() should be true")
+    }
 
 }

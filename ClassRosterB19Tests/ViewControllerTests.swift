@@ -11,7 +11,7 @@ import XCTest
 
 class ViewControllerTests: XCTestCase {
 
-    var controller = ViewController(coder: nil)
+    var controller = PersonViewController(coder: nil)
     
     override func setUp() {
         super.setUp()

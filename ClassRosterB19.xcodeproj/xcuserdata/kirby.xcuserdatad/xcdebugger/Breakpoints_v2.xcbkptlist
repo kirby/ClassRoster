@@ -9,14 +9,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClassRosterB19/ViewController.swift"
-            timestampString = "427676312.828971"
+            filePath = "ClassRosterB19/PersonViewController.swift"
+            timestampString = "427753834.16522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "ViewController"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "PersonViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClassRosterB19.ViewController.roster.setter : Swift.Array&lt;ClassRosterB19.Person&gt;"
+                  moduleName = "ClassRosterB19"
+                  urlString = "file:///Users/kirby/CodeFellows/devaccel/Week1/ClassRosterB19/ClassRosterB19/ViewController.swift"
+                  timestampString = "427739849.879167"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClassRosterB19.ViewController.init (ClassRosterB19.ViewController.Type)(coder : Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.NSCoder&gt;) -&gt; ClassRosterB19.ViewController"
+                  moduleName = "ClassRosterB19"
+                  urlString = "file:///Users/kirby/CodeFellows/devaccel/Week1/ClassRosterB19/ClassRosterB19/ViewController.swift"
+                  timestampString = "427739849.879324"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "4538">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
