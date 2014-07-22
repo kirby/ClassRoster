@@ -68,10 +68,9 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as PersonViewCell
         
-        //cell.textLabel.text = roster[indexPath.row].fullName()
         cell.fullNameLabel.text = roster[indexPath.row].fullName()
         if (roster[indexPath.row].hasImage()) {
-            cell.imageView.image = roster[indexPath.row].image
+            cell.personImage.image = roster[indexPath.row].image
         }
         return cell
     }
@@ -82,7 +81,7 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
         if (segue.identifier == "ShowDetailSeque") {
             let destVC = segue.destinationViewController as PersonDetailViewController
             destVC.person = roster[tableView!.indexPathForSelectedRow().row]
-        } else if (segue.identifier == "AddPerson") {
+        } else if (segue.identifier == "AddPersonSeque") {
             let destVC = segue.destinationViewController as PersonDetailViewController
             let emptyPerson = Person(firstName: "", lastName: "")
             roster.append(emptyPerson)

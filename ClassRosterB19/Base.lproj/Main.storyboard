@@ -65,10 +65,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="bv9-9G-U6c">
+                    <navigationItem key="navigationItem" title="Roster" id="bv9-9G-U6c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N">
                             <connections>
-                                <segue destination="Nmx-gg-6Pm" kind="show" identifier="AddPerson" id="0O2-uG-Qrr"/>
+                                <segue destination="Nmx-gg-6Pm" kind="show" identifier="AddPersonSeque" id="0O2-uG-Qrr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,6 +139,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Maz-pX-NHw"/>
+        <segue reference="0O2-uG-Qrr"/>
     </inferredMetricsTieBreakers>
 </document>
