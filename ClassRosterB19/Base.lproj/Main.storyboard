@@ -102,7 +102,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-2c-rKO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="silhouette.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-2c-rKO">
                                 <rect key="frame" x="20" y="226" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -138,7 +138,10 @@
             <point key="canvasLocation" x="1114" y="66"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="silhouette.jpeg" width="191" height="264"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0O2-uG-Qrr"/>
+        <segue reference="Maz-pX-NHw"/>
     </inferredMetricsTieBreakers>
 </document>
