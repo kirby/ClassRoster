@@ -16,8 +16,6 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         roster = loadRosterFromPlist()
-        // hack
-        //roster[3].image = UIImage(named: "linkedin.png")
     }
                             
     override func viewDidLoad() {
