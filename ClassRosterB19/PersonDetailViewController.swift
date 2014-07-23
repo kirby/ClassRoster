@@ -16,8 +16,15 @@ class PersonDetailViewController: UIViewController {
     
     var person : Person!
     
+    
+    
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "myObserver:", name: UITextFieldTextDidChangeNotification, object: nil)
+    }
+    
+    func myObserver(sender : AnyObject) {
+        println("\(sender)")
     }
     
     override func viewDidLoad() {

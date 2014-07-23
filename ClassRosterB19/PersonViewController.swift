@@ -67,6 +67,7 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as PersonViewCell
         
         cell.fullNameLabel.text = roster[indexPath.row].fullName()
+        //cell.accessoryType = UITableViewCellAccessoryType.DetailDisclosureButton
         if (roster[indexPath.row].hasImage()) {
             cell.personImage.image = roster[indexPath.row].image
         }
@@ -76,15 +77,37 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
 //MARK: - UITableViewDelegate
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
-        if (segue.identifier == "ShowDetailSeque") {
-            let destVC = segue.destinationViewController as PersonDetailViewController
-            destVC.person = roster[tableView!.indexPathForSelectedRow().row]
-        } else if (segue.identifier == "AddPersonSeque") {
-            let destVC = segue.destinationViewController as PersonDetailViewController
-            let emptyPerson = Person(firstName: "", lastName: "")
-            roster.append(emptyPerson)
-            destVC.person = emptyPerson
+        if let segueId = segue.identifier {
+            println("\(segueId)")
+            switch segueId {
+            case "AddPersonSegue":
+                let destVC = segue.destinationViewController as PersonDetailViewController
+                let emptyPerson = Person(firstName: "", lastName: "")
+                roster.append(emptyPerson)
+                destVC.person = emptyPerson
+            case "ShowDetailSegue":
+                let destVC = segue.destinationViewController as PersonDetailViewController
+                destVC.person = roster[tableView!.indexPathForSelectedRow().row]
+            case "ShowDetailDisclosureSegue":
+                let destVC = segue.destinationViewController as PersonDetailViewController
+                let cell = tableView!.indexPathForCell(sender as? PersonViewCell)
+                let row = cell.row
+                destVC.person = roster[row]
+            default:
+                let destVC = segue.destinationViewController as PersonDetailViewController
+                //destVC.person = roster[tableView!.indexPathForSelectedRow().row]
         }
+        }
+        
+//        if (segue.identifier == "ShowDetailSegue") {
+//            let destVC = segue.destinationViewController as PersonDetailViewController
+//            destVC.person = roster[tableView!.indexPathForSelectedRow().row]
+//        } else if (segue.identifier == "AddPersonSegue") {
+//            let destVC = segue.destinationViewController as PersonDetailViewController
+//            let emptyPerson = Person(firstName: "", lastName: "")
+//            roster.append(emptyPerson)
+//            destVC.person = emptyPerson
+//        }
     }
 }
 

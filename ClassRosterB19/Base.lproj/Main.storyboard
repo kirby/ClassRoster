@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kyw-qz-NaL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="46" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kyw-qz-NaL">
                                 <rect key="frame" x="0.0" y="20" width="614" height="610"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -29,15 +29,13 @@
                                                     <rect key="frame" x="8" y="7" width="30" height="30"/>
                                                     <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="ubf-Mh-tVY"/>
-                                                        <constraint firstAttribute="width" constant="30" id="wfe-xp-1cj"/>
+                                                        <constraint firstAttribute="width" constant="30" id="kwP-6Y-cNl"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQx-Jg-tb9">
                                                     <rect key="frame" x="46" y="12" width="150" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="Zdq-SP-lzn"/>
-                                                        <constraint firstAttribute="height" constant="21" id="oJV-ud-fN1"/>
+                                                        <constraint firstAttribute="width" constant="150" id="K7g-85-Pfc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -45,16 +43,18 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="d8B-Hu-dAG" firstAttribute="top" secondItem="DBj-qq-YK8" secondAttribute="top" constant="7" id="A5W-Le-QfN"/>
-                                                <constraint firstAttribute="centerY" secondItem="XQx-Jg-tb9" secondAttribute="centerY" id="cPp-Uy-Tpm"/>
-                                                <constraint firstItem="d8B-Hu-dAG" firstAttribute="leading" secondItem="DBj-qq-YK8" secondAttribute="leading" constant="8" id="euJ-xx-Vrf"/>
-                                                <constraint firstItem="XQx-Jg-tb9" firstAttribute="leading" secondItem="d8B-Hu-dAG" secondAttribute="trailing" constant="8" id="zyR-jQ-CO7"/>
+                                                <constraint firstItem="XQx-Jg-tb9" firstAttribute="leading" secondItem="d8B-Hu-dAG" secondAttribute="trailing" constant="8" symbolic="YES" id="1m0-sN-1l3"/>
+                                                <constraint firstItem="d8B-Hu-dAG" firstAttribute="leading" secondItem="DBj-qq-YK8" secondAttribute="leading" constant="8" id="Cbu-rp-1cd"/>
+                                                <constraint firstItem="XQx-Jg-tb9" firstAttribute="centerY" secondItem="d8B-Hu-dAG" secondAttribute="centerY" id="SdE-m4-7Pl"/>
+                                                <constraint firstItem="d8B-Hu-dAG" firstAttribute="centerY" secondItem="DBj-qq-YK8" secondAttribute="centerY" id="YTH-AB-Tk8"/>
+                                                <constraint firstItem="d8B-Hu-dAG" firstAttribute="top" secondItem="DBj-qq-YK8" secondAttribute="top" constant="7" id="zWi-AE-yqh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fullNameLabel" destination="XQx-Jg-tb9" id="rRP-eu-23j"/>
                                             <outlet property="personImage" destination="d8B-Hu-dAG" id="iXg-Ka-P6f"/>
-                                            <segue destination="Nmx-gg-6Pm" kind="show" identifier="ShowDetailSeque" id="Maz-pX-NHw"/>
+                                            <segue destination="Nmx-gg-6Pm" kind="show" identifier="ShowDetailSegue" id="Maz-pX-NHw"/>
+                                            <segue destination="Nmx-gg-6Pm" kind="show" identifier="ShowDetailDisclosureSegue" trigger="accessoryAction" id="MBI-ZL-qOZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -64,11 +64,49 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kyw-qz-NaL" secondAttribute="bottom" id="7c3-Jd-moy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kyw-qz-NaL" secondAttribute="bottom" id="BDu-Op-Wyl"/>
+                            <constraint firstAttribute="trailing" secondItem="Kyw-qz-NaL" secondAttribute="trailing" id="WJb-DO-9F9"/>
+                            <constraint firstItem="Kyw-qz-NaL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ywn-2j-kbo"/>
+                            <constraint firstItem="Kyw-qz-NaL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fyN-OI-rKr"/>
+                            <constraint firstItem="Kyw-qz-NaL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hvA-Zj-v4q"/>
+                            <constraint firstAttribute="trailing" secondItem="Kyw-qz-NaL" secondAttribute="trailing" id="lEV-Mf-Esm"/>
+                            <constraint firstItem="Kyw-qz-NaL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="maH-Ly-F9m"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WJb-DO-9F9"/>
+                                <exclude reference="Ywn-2j-kbo"/>
+                                <exclude reference="fyN-OI-rKr"/>
+                                <exclude reference="hvA-Zj-v4q"/>
+                                <exclude reference="lEV-Mf-Esm"/>
+                                <exclude reference="maH-Ly-F9m"/>
+                                <exclude reference="7c3-Jd-moy"/>
+                                <exclude reference="BDu-Op-Wyl"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Ywn-2j-kbo"/>
+                                <include reference="hvA-Zj-v4q"/>
+                                <include reference="lEV-Mf-Esm"/>
+                                <include reference="BDu-Op-Wyl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="WJb-DO-9F9"/>
+                                <include reference="fyN-OI-rKr"/>
+                                <include reference="maH-Ly-F9m"/>
+                                <include reference="7c3-Jd-moy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Roster" id="bv9-9G-U6c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N">
                             <connections>
-                                <segue destination="Nmx-gg-6Pm" kind="show" identifier="AddPersonSeque" id="0O2-uG-Qrr"/>
+                                <segue destination="Nmx-gg-6Pm" kind="show" identifier="AddPersonSegue" id="0O2-uG-Qrr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -142,6 +180,6 @@
         <image name="silhouette.jpeg" width="191" height="264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Maz-pX-NHw"/>
+        <segue reference="0O2-uG-Qrr"/>
     </inferredMetricsTieBreakers>
 </document>
