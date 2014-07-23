@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B4Q-jL-nRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
@@ -53,8 +53,6 @@
                                         <connections>
                                             <outlet property="fullNameLabel" destination="XQx-Jg-tb9" id="rRP-eu-23j"/>
                                             <outlet property="personImage" destination="d8B-Hu-dAG" id="iXg-Ka-P6f"/>
-                                            <segue destination="Nmx-gg-6Pm" kind="show" identifier="ShowDetailSegue" id="Maz-pX-NHw"/>
-                                            <segue destination="Nmx-gg-6Pm" kind="show" identifier="ShowDetailDisclosureSegue" trigger="accessoryAction" id="MBI-ZL-qOZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,13 +102,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Roster" id="bv9-9G-U6c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N">
-                            <connections>
-                                <segue destination="Nmx-gg-6Pm" kind="show" identifier="AddPersonSegue" id="0O2-uG-Qrr"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="barButtonItemAdd" destination="UTn-PE-s0N" id="V8a-O5-9nH"/>
                         <outlet property="tableView" destination="Kyw-qz-NaL" id="bCw-rz-tor"/>
                     </connections>
                 </viewController>
@@ -121,7 +116,7 @@
         <!--Person Detail-->
         <scene sceneID="Agi-zf-nlL">
             <objects>
-                <viewController storyboardIdentifier="PersonDetail" title="Person Detail" id="Nmx-gg-6Pm" customClass="PersonDetailViewController" customModule="ClassRosterB19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonDetail" title="Person Detail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nmx-gg-6Pm" customClass="PersonDetailViewController" customModule="ClassRosterB19" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ts7-qe-jZB"/>
                         <viewControllerLayoutGuide type="bottom" id="esf-ET-kOW"/>
@@ -132,54 +127,146 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQv-Io-Rwm">
                                 <rect key="frame" x="20" y="118" width="231" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="QNO-aQ-ICa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-Ik-xq5">
-                                <rect key="frame" x="20" y="175" width="231" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QNO-aQ-ICa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="QNO-aQ-ICa"/>
+                                    </mask>
+                                </variation>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="silhouette.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="QC5-2c-rKO">
                                 <rect key="frame" x="20" y="226" width="240" height="240"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="aDE-fO-tf3"/>
+                                    <constraint firstAttribute="height" constant="100" id="fZb-90-ZFm"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aDE-fO-tf3"/>
+                                        <exclude reference="fZb-90-ZFm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aDE-fO-tf3"/>
+                                        <include reference="fZb-90-ZFm"/>
+                                    </mask>
+                                </variation>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="twitter handle" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0v-hg-HW5">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="github URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="COe-XF-awH">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gmk-Ik-xq5">
+                                <rect key="frame" x="20" y="175" width="231" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="trailing" secondItem="COe-XF-awH" secondAttribute="trailing" id="12Z-Bs-a3B"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="leading" secondItem="COe-XF-awH" secondAttribute="leading" id="1cm-hQ-W03"/>
+                            <constraint firstItem="COe-XF-awH" firstAttribute="top" secondItem="Q0v-hg-HW5" secondAttribute="bottom" constant="8" id="7Qa-6o-7fQ"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="leading" secondItem="Q0v-hg-HW5" secondAttribute="leading" id="CkT-0a-qm9"/>
+                            <constraint firstAttribute="centerX" secondItem="QC5-2c-rKO" secondAttribute="centerX" id="DHX-ch-I4s"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="centerX" secondItem="QC5-2c-rKO" secondAttribute="centerX" id="Dxv-wt-Iyy"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="top" secondItem="QC5-2c-rKO" secondAttribute="bottom" constant="8" id="ISA-Lg-ZdJ"/>
+                            <constraint firstItem="COe-XF-awH" firstAttribute="top" secondItem="Q0v-hg-HW5" secondAttribute="bottom" constant="8" id="Nw7-fs-gJL"/>
+                            <constraint firstItem="Q0v-hg-HW5" firstAttribute="top" secondItem="Gmk-Ik-xq5" secondAttribute="bottom" constant="8" id="U1k-FE-utG"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="leading" secondItem="Gmk-Ik-xq5" secondAttribute="leading" id="V9S-Ax-so2"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="trailing" secondItem="Gmk-Ik-xq5" secondAttribute="trailing" id="Vu7-aU-Q09"/>
+                            <constraint firstItem="Gmk-Ik-xq5" firstAttribute="top" secondItem="UQv-Io-Rwm" secondAttribute="bottom" constant="8" symbolic="YES" id="fUm-WC-anV"/>
+                            <constraint firstItem="QC5-2c-rKO" firstAttribute="top" secondItem="ts7-qe-jZB" secondAttribute="bottom" constant="100" id="iGI-nw-Sg9"/>
+                            <constraint firstItem="Q0v-hg-HW5" firstAttribute="top" secondItem="Gmk-Ik-xq5" secondAttribute="bottom" constant="8" id="jpu-Fm-rXf"/>
+                            <constraint firstItem="Gmk-Ik-xq5" firstAttribute="top" secondItem="UQv-Io-Rwm" secondAttribute="bottom" constant="8" id="k3F-PY-f8S"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="trailing" secondItem="Q0v-hg-HW5" secondAttribute="trailing" id="s1d-KZ-KVO"/>
+                            <constraint firstItem="Gmk-Ik-xq5" firstAttribute="top" secondItem="UQv-Io-Rwm" secondAttribute="bottom" constant="8" id="y1k-dc-paC"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="top" secondItem="QC5-2c-rKO" secondAttribute="bottom" constant="8" id="ynX-eQ-1os"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Q0v-hg-HW5"/>
+                                <exclude reference="COe-XF-awH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="DHX-ch-I4s"/>
+                                <exclude reference="iGI-nw-Sg9"/>
+                                <exclude reference="12Z-Bs-a3B"/>
+                                <exclude reference="1cm-hQ-W03"/>
+                                <exclude reference="CkT-0a-qm9"/>
+                                <exclude reference="Dxv-wt-Iyy"/>
+                                <exclude reference="ISA-Lg-ZdJ"/>
+                                <exclude reference="V9S-Ax-so2"/>
+                                <exclude reference="Vu7-aU-Q09"/>
+                                <exclude reference="s1d-KZ-KVO"/>
+                                <exclude reference="ynX-eQ-1os"/>
+                                <exclude reference="fUm-WC-anV"/>
+                                <exclude reference="k3F-PY-f8S"/>
+                                <exclude reference="y1k-dc-paC"/>
+                                <exclude reference="U1k-FE-utG"/>
+                                <exclude reference="jpu-Fm-rXf"/>
+                                <exclude reference="7Qa-6o-7fQ"/>
+                                <exclude reference="Nw7-fs-gJL"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Q0v-hg-HW5"/>
+                                <include reference="COe-XF-awH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="DHX-ch-I4s"/>
+                                <include reference="iGI-nw-Sg9"/>
+                                <include reference="12Z-Bs-a3B"/>
+                                <include reference="1cm-hQ-W03"/>
+                                <include reference="CkT-0a-qm9"/>
+                                <include reference="Dxv-wt-Iyy"/>
+                                <include reference="ISA-Lg-ZdJ"/>
+                                <include reference="V9S-Ax-so2"/>
+                                <include reference="Vu7-aU-Q09"/>
+                                <include reference="s1d-KZ-KVO"/>
+                                <include reference="ynX-eQ-1os"/>
+                                <include reference="fUm-WC-anV"/>
+                                <include reference="k3F-PY-f8S"/>
+                                <include reference="y1k-dc-paC"/>
+                                <include reference="U1k-FE-utG"/>
+                                <include reference="jpu-Fm-rXf"/>
+                                <include reference="7Qa-6o-7fQ"/>
+                                <include reference="Nw7-fs-gJL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="firstNameText" destination="UQv-Io-Rwm" id="myo-gr-QOP"/>
+                        <outlet property="githubHandle" destination="COe-XF-awH" id="AV0-nU-g1i"/>
                         <outlet property="imageView" destination="QC5-2c-rKO" id="PST-Rd-RnE"/>
                         <outlet property="lastNameText" destination="Gmk-Ik-xq5" id="BDz-VT-6DS"/>
+                        <outlet property="twitterHandle" destination="Q0v-hg-HW5" id="1T7-dN-nTu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4O-Jk-0ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="66"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iTY-uW-jFa">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B4Q-jL-nRI" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pqt-ah-W4r">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Elx-P9-U4G"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aeS-CK-uqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1114" y="66"/>
+            <point key="canvasLocation" x="2787" y="66"/>
         </scene>
     </scenes>
     <resources>
         <image name="silhouette.jpeg" width="191" height="264"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0O2-uG-Qrr"/>
-    </inferredMetricsTieBreakers>
 </document>

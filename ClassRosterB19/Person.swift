@@ -13,6 +13,8 @@ class Person {
     
     var firstName : String
     var lastName : String
+    var twitterHandle : String?
+    var githubHandle : String?
     var image : UIImage?
     
     init(firstName: String, lastName : String) {
@@ -26,7 +28,6 @@ class Person {
     
     func setImage(image : UIImage) {
         self.image = image
-        // do something ?
     }
     
     func hasImage() -> Bool {

@@ -9,6 +9,10 @@
 		<string>John</string>
 		<key>last</key>
 		<string>Clem</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -17,6 +21,10 @@
 		<string>Brad</string>
 		<key>last</key>
 		<string>Johnson</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -25,6 +33,10 @@
 		<string>Victor</string>
 		<key>last</key>
 		<string>Adu</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
 		<key>image</key>
@@ -33,6 +45,10 @@
 		<string>Kirby</string>
 		<key>last</key>
 		<string>Shabaga</string>
+        <key>twitter</key>
+        <string>@kirbyshabaga</string>
+        <key>github</key>
+        <string>https://github.com/kirby</string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -41,6 +57,10 @@
 		<string>Collin</string>
 		<key>last</key>
 		<string>Atherton</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -57,6 +77,10 @@
 		<string>Dan</string>
 		<key>last</key>
 		<string>Hoang</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -65,6 +89,10 @@
 		<string>Mike</string>
 		<key>last</key>
 		<string>Tirenin</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -73,6 +101,10 @@
 		<string>Alex</string>
 		<key>last</key>
 		<string>Rice</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 	<dict>
         <key>image</key>
@@ -81,6 +113,10 @@
 		<string>Leonardo</string>
 		<key>last</key>
 		<string>Lee</string>
+        <key>twitter</key>
+        <string></string>
+        <key>github</key>
+        <string></string>
 	</dict>
 </array>
 </plist>

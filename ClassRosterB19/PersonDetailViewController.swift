@@ -8,15 +8,15 @@
 
 import UIKit
 
-class PersonDetailViewController: UIViewController {
+class PersonDetailViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var twitterHandle: UITextField!
+    @IBOutlet weak var githubHandle: UITextField!
     
     var person : Person!
-    
-    
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -24,23 +24,44 @@ class PersonDetailViewController: UIViewController {
     }
     
     func myObserver(sender : AnyObject) {
-        println("\(sender)")
+        //println("myObserver \(sender)")
+        //sender.resignFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        firstNameText.text = person.firstName
-        lastNameText.text = person.lastName
+
         if (person.hasImage()) {
             imageView.image = person.image
+            
+            imageView.layer.cornerRadius = 15.0
+            imageView.layer.borderWidth = 1.0
+            imageView.layer.borderColor = UIColor.blackColor().CGColor
+            
+//            println("width = \(imageView.frame.size.width)")
+//            imageView.layer.cornerRadius = 0.5 * imageView.frame.size.width // assumption: this is a square
+            imageView.layer.masksToBounds = true
         }
+        
+        firstNameText.text = person.firstName
+        lastNameText.text = person.lastName
+        twitterHandle.text = person.twitterHandle
+        githubHandle.text = person.githubHandle
+        
+        self.firstNameText.delegate = self
+        self.lastNameText.delegate = self
+        self.twitterHandle.delegate = self
+        self.githubHandle.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
         person.firstName = firstNameText.text
         person.lastName = lastNameText.text
+        person.twitterHandle = twitterHandle.text
+        person.githubHandle = githubHandle.text
+//        person.image = ?
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +69,51 @@ class PersonDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//MARK: - UITextFieldDelegate
+    
+    /*
+     * If we touch outside of a text field then stop editing, keyboard hides
+     */
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+//        println("\(touches)")
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField!) {
+        println("did begin editing")
+        println("view.bounds = \(view.bounds)")
+        
+        var x = self.view.bounds.origin.x
+        var y = self.view.bounds.origin.y + 100
+        var width = self.view.bounds.width
+        var height = self.view.bounds.height
+        
+        UIView.animateWithDuration(0.3) {
+            self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField!) {
+        println("did end editing")
+        println("view.bounds = \(view.bounds)")
+        
+        var x = self.view.bounds.origin.x
+        var y = self.view.bounds.origin.y - 100
+        var width = self.view.bounds.width
+        var height = self.view.bounds.height
+        
+        UIView.animateWithDuration(0.3) {
+            self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+        }
+    }
+    
+    /*
+     * Return key hides keyboard
+     */
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation

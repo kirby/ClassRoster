@@ -11,6 +11,8 @@ import UIKit
 class PersonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView : UITableView?
+    @IBOutlet weak var barButtonItemAdd: UIBarButtonItem!
+    
     var roster = Array<Person>()
     
     init(coder aDecoder: NSCoder!) {
@@ -21,6 +23,7 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.tableView!.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,12 +47,22 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
         let arr = NSArray(contentsOfFile: path)
         
         for object in arr {
-            if let person = object as? Dictionary<String, String> {
-                let firstName = person["first"] as String
-                let lastName = person["last"] as String
-                let image = person["image"] as String
+            if let info = object as? Dictionary<String, String> {
+                
+                let firstName = info["first"] as String
+                let lastName = info["last"] as String
                 var person = Person(firstName: firstName, lastName: lastName)
-                person.setImage(UIImage(named: image))
+                
+                if let image = info["image"] as? String {
+                    person.setImage(UIImage(named: image))
+                }
+                if let twitter = info["twitter"] as? String {
+                    person.twitterHandle = twitter
+                }
+                if let github = info["github"] as? String {
+                    person.githubHandle = github
+                }
+                
                 roster.append(person)
             }
         }
@@ -75,6 +88,14 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
 //MARK: - UITableViewDelegate
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        if let detailVC = self.storyboard.instantiateViewControllerWithIdentifier("PersonDetail") as? PersonDetailViewController {
+            detailVC.person = roster[indexPath.row]
+            self.navigationController.pushViewController(detailVC, animated: true)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if let segueId = segue.identifier {
@@ -109,5 +130,6 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
 //            destVC.person = emptyPerson
 //        }
     }
+    
 }
 
