@@ -91,6 +91,12 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         }
     }
     
+//MARK: - UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
+        println("imagePickerController")
+    }
+    
     
 //MARK: - UITextFieldDelegate
     
