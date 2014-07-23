@@ -102,10 +102,13 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Roster" id="bv9-9G-U6c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTn-PE-s0N">
+                            <connections>
+                                <action selector="addPerson:" destination="BYZ-38-t0r" id="Qma-jW-a4D"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barButtonItemAdd" destination="UTn-PE-s0N" id="V8a-O5-9nH"/>
                         <outlet property="tableView" destination="Kyw-qz-NaL" id="bCw-rz-tor"/>
                     </connections>
                 </viewController>
@@ -131,7 +134,7 @@
                                     <constraint firstAttribute="width" constant="200" id="QNO-aQ-ICa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="QNO-aQ-ICa"/>

@@ -9,11 +9,16 @@
 import UIKit
 
 class PersonViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet var tableView : UITableView?
-    @IBOutlet weak var barButtonItemAdd: UIBarButtonItem!
+    
+    @IBAction func addPerson(sender: UIBarButtonItem) {
+        addPerson()
+    }
     
     var roster = Array<Person>()
+    
+// ------------------------------------------
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -69,6 +74,15 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
         return roster
     }
     
+    func addPerson() {
+        var emptyPerson = Person(firstName: "", lastName: "")
+        roster.append(emptyPerson)
+        if let detailVC = self.storyboard.instantiateViewControllerWithIdentifier("PersonDetail") as? PersonDetailViewController {
+            detailVC.person = emptyPerson
+            self.navigationController.pushViewController(detailVC, animated: true)
+        }
+    }
+    
 //MARK: - UITableViewDataSource
     
     func tableView(tableView: UITableView!,
@@ -94,41 +108,6 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
             detailVC.person = roster[indexPath.row]
             self.navigationController.pushViewController(detailVC, animated: true)
         }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        
-        if let segueId = segue.identifier {
-            println("\(segueId)")
-            switch segueId {
-            case "AddPersonSegue":
-                let destVC = segue.destinationViewController as PersonDetailViewController
-                let emptyPerson = Person(firstName: "", lastName: "")
-                roster.append(emptyPerson)
-                destVC.person = emptyPerson
-            case "ShowDetailSegue":
-                let destVC = segue.destinationViewController as PersonDetailViewController
-                destVC.person = roster[tableView!.indexPathForSelectedRow().row]
-            case "ShowDetailDisclosureSegue":
-                let destVC = segue.destinationViewController as PersonDetailViewController
-                let cell = tableView!.indexPathForCell(sender as? PersonViewCell)
-                let row = cell.row
-                destVC.person = roster[row]
-            default:
-                let destVC = segue.destinationViewController as PersonDetailViewController
-                //destVC.person = roster[tableView!.indexPathForSelectedRow().row]
-        }
-        }
-        
-//        if (segue.identifier == "ShowDetailSegue") {
-//            let destVC = segue.destinationViewController as PersonDetailViewController
-//            destVC.person = roster[tableView!.indexPathForSelectedRow().row]
-//        } else if (segue.identifier == "AddPersonSegue") {
-//            let destVC = segue.destinationViewController as PersonDetailViewController
-//            let emptyPerson = Person(firstName: "", lastName: "")
-//            roster.append(emptyPerson)
-//            destVC.person = emptyPerson
-//        }
     }
     
 }
