@@ -75,7 +75,12 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func addPerson() {
+        
         var emptyPerson = Person(firstName: "", lastName: "")
+        emptyPerson.githubHandle = "https://github.com/"
+        emptyPerson.twitterHandle = "@"
+        emptyPerson.image = UIImage(named: "silhouette.jpeg")
+        
         roster.append(emptyPerson)
         if let detailVC = self.storyboard.instantiateViewControllerWithIdentifier("PersonDetail") as? PersonDetailViewController {
             detailVC.person = emptyPerson

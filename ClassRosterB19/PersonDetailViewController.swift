@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class PersonDetailViewController: UIViewController, UITextFieldDelegate {
+class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var twitterHandle: UITextField!
     @IBOutlet weak var githubHandle: UITextField!
+    
+    @IBAction func ImagePicker(sender: UIButton) {
+        addImageFromPicker()
+    }
     
     var person : Person!
     
@@ -56,6 +61,9 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate {
         self.githubHandle.delegate = self
     }
     
+    /*
+     * update the person instance with the current values
+     */
     override func viewWillDisappear(animated: Bool) {
         person.firstName = firstNameText.text
         person.lastName = lastNameText.text
@@ -68,6 +76,21 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func addImageFromPicker() {
+        println("addImageFromPicker")
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum)
+        {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
+            imagePicker.mediaTypes = [kUTTypeImage]
+            imagePicker.allowsEditing = false
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
     
 //MARK: - UITextFieldDelegate
     

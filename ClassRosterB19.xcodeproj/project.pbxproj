@@ -24,6 +24,7 @@
 		4EBBEDF9197DC4F700FD98E3 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7312A9197D877C0093C2F2 /* PersonViewController.swift */; };
 		4ED41B3E197F0C2C006FC270 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8DA92197EFC6A00F13114 /* PersonDetailViewController.swift */; };
 		4ED41B40197F0F61006FC270 /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED41B3F197F0F61006FC270 /* PersonViewCell.swift */; };
+		4EDDE68B1980756A00566EE6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDDE68A1980756A00566EE6 /* MobileCoreServices.framework */; };
 		4EE8286F197DBF3100A1F8BF /* linkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E7B60DF197DBA4E00164263 /* linkedin.png */; };
 		4EECCC3A197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
 		4EECCC3B197F198100CE74CA /* silhouette.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4EECCC39197F198100CE74CA /* silhouette.jpeg */; };
@@ -52,6 +53,13 @@
 			remoteGlobalIDString = 4E7312A1197D877C0093C2F2;
 			remoteInfo = ClassRosterB19;
 		};
+		4EDDE68C198075A500566EE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E73129A197D877C0093C2F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E7312A1197D877C0093C2F2;
+			remoteInfo = ClassRosterB19;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +80,7 @@
 		4EB8DA92197EFC6A00F13114 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
 		4EBBEDF7197DC44900FD98E3 /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 		4ED41B3F197F0F61006FC270 /* PersonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
+		4EDDE68A1980756A00566EE6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4EECCC39197F198100CE74CA /* silhouette.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silhouette.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDDE68B1980756A00566EE6 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +106,7 @@
 		4E731299197D877C0093C2F2 = {
 			isa = PBXGroup;
 			children = (
+				4EDDE68A1980756A00566EE6 /* MobileCoreServices.framework */,
 				4E7312A4197D877C0093C2F2 /* ClassRosterB19 */,
 				4E7312B7197D877C0093C2F2 /* ClassRosterB19Tests */,
 				4E7312A3197D877C0093C2F2 /* Products */,
@@ -223,6 +234,7 @@
 				4E7312B6197D877C0093C2F2 /* PBXTargetDependency */,
 				4EB8DA8D197EB56100F13114 /* PBXTargetDependency */,
 				4EB8DA8F197EB56100F13114 /* PBXTargetDependency */,
+				4EDDE68D198075A500566EE6 /* PBXTargetDependency */,
 			);
 			name = ClassRosterB19Tests;
 			productName = ClassRosterB19Tests;
@@ -336,6 +348,11 @@
 			isa = PBXTargetDependency;
 			target = 4E7312A1197D877C0093C2F2 /* ClassRosterB19 */;
 			targetProxy = 4EB8DA8E197EB56100F13114 /* PBXContainerItemProxy */;
+		};
+		4EDDE68D198075A500566EE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E7312A1197D877C0093C2F2 /* ClassRosterB19 */;
+			targetProxy = 4EDDE68C198075A500566EE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
