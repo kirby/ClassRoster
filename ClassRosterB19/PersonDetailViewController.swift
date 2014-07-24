@@ -54,14 +54,15 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         if (person.hasImage()) {
             imageButton.setImage(person.image, forState: UIControlState.Normal)
             imageButton.setImage(person.image, forState: UIControlState.Highlighted)
-            imageButton.imageView.layer.cornerRadius = 15.0
-            imageButton.imageView.layer.borderWidth = 1.0
-            imageButton.imageView.layer.borderColor = UIColor.blackColor().CGColor
-            imageButton.imageView.layer.masksToBounds = true
+
         } else {
             imageButton.setImage(imageDefault, forState: UIControlState.Normal)
             imageButton.setImage(imageDefault, forState: UIControlState.Highlighted)
         }
+        imageButton.imageView.layer.cornerRadius = 15.0
+        imageButton.imageView.layer.borderWidth = 1.0
+        imageButton.imageView.layer.borderColor = UIColor.blackColor().CGColor
+        imageButton.imageView.layer.masksToBounds = true
         
         firstNameText.text = person.firstName
         lastNameText.text = person.lastName
@@ -95,16 +96,27 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
      */
     func addImageFromPicker() {
         println("addImageFromPicker")
-        presentViewController(self.imagePicker, animated: false, completion: nil)
+        presentViewController(self.imagePicker, animated: true, completion: nil)
     }
     
 //MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
         image = info[UIImagePickerControllerOriginalImage] as UIImage
+        // UIImagePickerControllerMediaURL
+        // UIImagePickerControllerReferenceURL
+        // UIImagePickerControllerMediaMetadata
+        
+        for i in info {
+            println("\(i)\n")
+        }
+
+        let metadata: AnyObject? = info[UIImagePickerControllerReferenceURL]
+        println("metadata = \(metadata)")
+        person.imageURL = metadata as? String
         imageButton.setImage(image, forState: UIControlState.Normal)
         imageButton.setImage(image, forState: UIControlState.Highlighted)
-        imagePicker.dismissViewControllerAnimated(false, completion: nil)
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
