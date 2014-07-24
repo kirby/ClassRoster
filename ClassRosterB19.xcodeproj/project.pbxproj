@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E29E1A51980A7EC00920C0C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E29E1A41980A7EC00920C0C /* PhotoViewController.swift */; };
 		4E6789A8197DC78700850132 /* defaultRoster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6789A7197DC78700850132 /* defaultRoster.plist */; };
 		4E6789A9197DC80A00850132 /* defaultRoster.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6789A7197DC78700850132 /* defaultRoster.plist */; };
 		4E7312A8197D877C0093C2F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7312A7197D877C0093C2F2 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E29E1A41980A7EC00920C0C /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		4E6789A7197DC78700850132 /* defaultRoster.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaultRoster.plist; sourceTree = "<group>"; };
 		4E7312A2197D877C0093C2F2 /* ClassRosterB19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassRosterB19.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E7312A6197D877C0093C2F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				4E7312A9197D877C0093C2F2 /* PersonViewController.swift */,
 				4EB8DA92197EFC6A00F13114 /* PersonDetailViewController.swift */,
+				4E29E1A41980A7EC00920C0C /* PhotoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				4E7B60DA197D8AC800164263 /* Person.swift in Sources */,
 				4E7312AA197D877C0093C2F2 /* PersonViewController.swift in Sources */,
 				4E7312A8197D877C0093C2F2 /* AppDelegate.swift in Sources */,
+				4E29E1A51980A7EC00920C0C /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

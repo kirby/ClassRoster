@@ -13,41 +13,50 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
 
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var twitterHandle: UITextField!
     @IBOutlet weak var githubHandle: UITextField!
+    @IBOutlet weak var imageButton: UIButton!
     
     @IBAction func ImagePicker(sender: UIButton) {
         addImageFromPicker()
     }
     
     var person : Person!
+    var imagePicker = UIImagePickerController()
+    var image = UIImage(named: "silhouette.jpeg")   // default image
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
+        //self.imageViewController = PhotoViewController(coder: aDecoder)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "myObserver:", name: UITextFieldTextDidChangeNotification, object: nil)
     }
     
     func myObserver(sender : AnyObject) {
         //println("myObserver \(sender)")
-        //sender.resignFirstResponder()
     }
     
+    /*
+     * viewDidLoad
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
+        }
 
         if (person.hasImage()) {
-            imageView.image = person.image
-            
-            imageView.layer.cornerRadius = 15.0
-            imageView.layer.borderWidth = 1.0
-            imageView.layer.borderColor = UIColor.blackColor().CGColor
-            
-//            println("width = \(imageView.frame.size.width)")
-//            imageView.layer.cornerRadius = 0.5 * imageView.frame.size.width // assumption: this is a square
-            imageView.layer.masksToBounds = true
+            imageButton.setImage(person.image, forState: UIControlState.Normal)
+            imageButton.setImage(person.image, forState: UIControlState.Highlighted)
+            imageButton.imageView.layer.cornerRadius = 15.0
+            imageButton.imageView.layer.borderWidth = 1.0
+            imageButton.imageView.layer.borderColor = UIColor.blackColor().CGColor
+            imageButton.imageView.layer.masksToBounds = true
         }
         
         firstNameText.text = person.firstName
@@ -55,10 +64,10 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         twitterHandle.text = person.twitterHandle
         githubHandle.text = person.githubHandle
         
-        self.firstNameText.delegate = self
-        self.lastNameText.delegate = self
-        self.twitterHandle.delegate = self
-        self.githubHandle.delegate = self
+        firstNameText.delegate = self
+        lastNameText.delegate = self
+        twitterHandle.delegate = self
+        githubHandle.delegate = self
     }
     
     /*
@@ -69,7 +78,7 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         person.lastName = lastNameText.text
         person.twitterHandle = twitterHandle.text
         person.githubHandle = githubHandle.text
-//        person.image = ?
+        person.image = self.image
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,24 +86,21 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
+    /*
+     * addImageFromPicker
+     */
     func addImageFromPicker() {
         println("addImageFromPicker")
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum)
-        {
-            var imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum;
-            imagePicker.mediaTypes = [kUTTypeImage]
-            imagePicker.allowsEditing = false
-            
-            self.presentViewController(imagePicker, animated: true, completion: nil)
-        }
+        presentViewController(self.imagePicker, animated: false, completion: nil)
     }
     
 //MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
-        println("imagePickerController")
+        image = info[UIImagePickerControllerOriginalImage] as UIImage
+        imageButton.setImage(image, forState: UIControlState.Normal)
+        imageButton.setImage(image, forState: UIControlState.Highlighted)
+        imagePicker.dismissViewControllerAnimated(false, completion: nil)
     }
     
     
