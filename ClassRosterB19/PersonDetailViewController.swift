@@ -21,6 +21,9 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         addImageFromPicker()
     }
     
+    let yConstant = 100
+    var boundsModified = false
+    
     var person : Person!
     var imagePicker = UIImagePickerController()
     var image = UIImage(named: "silhouette.jpeg")
@@ -134,8 +137,12 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         println("did begin editing")
         println("view.bounds = \(view.bounds)")
         
+        // if .y is below the keyboard then change the bounds
+        
+        boundsModified = true
+        
         var x = self.view.bounds.origin.x
-        var y = self.view.bounds.origin.y + 100
+        var y = self.view.bounds.origin.y + yConstant
         var width = self.view.bounds.width
         var height = self.view.bounds.height
         
@@ -148,13 +155,16 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         println("did end editing")
         println("view.bounds = \(view.bounds)")
         
-        var x = self.view.bounds.origin.x
-        var y = self.view.bounds.origin.y - 100
-        var width = self.view.bounds.width
-        var height = self.view.bounds.height
-        
-        UIView.animateWithDuration(0.3) {
-            self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+        if (boundsModified) {
+            var x = self.view.bounds.origin.x
+            var y = self.view.bounds.origin.y - yConstant
+            var width = self.view.bounds.width
+            var height = self.view.bounds.height
+            
+            UIView.animateWithDuration(0.3) {
+                self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+            }
+            boundsModified = false
         }
     }
     

@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var navController = UINavigationController(rootViewController: self.window!.rootViewController)
         
         window!.rootViewController = navController
+        
         return true
     }
 
