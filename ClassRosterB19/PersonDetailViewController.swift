@@ -23,7 +23,8 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
     
     var person : Person!
     var imagePicker = UIImagePickerController()
-    var image = UIImage(named: "silhouette.jpeg")   // default image
+    var image = UIImage(named: "silhouette.jpeg")
+    var imageDefault = UIImage(named: "silhouette.jpeg")   // default image
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -57,6 +58,9 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
             imageButton.imageView.layer.borderWidth = 1.0
             imageButton.imageView.layer.borderColor = UIColor.blackColor().CGColor
             imageButton.imageView.layer.masksToBounds = true
+        } else {
+            imageButton.setImage(imageDefault, forState: UIControlState.Normal)
+            imageButton.setImage(imageDefault, forState: UIControlState.Highlighted)
         }
         
         firstNameText.text = person.firstName
@@ -78,7 +82,7 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         person.lastName = lastNameText.text
         person.twitterHandle = twitterHandle.text
         person.githubHandle = githubHandle.text
-        person.image = self.image
+        person.image = imageButton.imageView.image
     }
 
     override func didReceiveMemoryWarning() {
