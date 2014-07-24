@@ -21,8 +21,14 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         addImageFromPicker()
     }
     
-    let yConstant = 100
+    let debug = true
+    
+    let keyboardHeight = 160 // just guessing for iPhone 5/5s; what is it for iPhone 4
+    var yPadding = 35
+    
     var boundsModified = false
+    var boundsOffset = 0
+    var device : UIDevice!
     
     var person : Person!
     var imagePicker = UIImagePickerController()
@@ -32,13 +38,27 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
         //self.imageViewController = PhotoViewController(coder: aDecoder)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "myObserver:", name: UITextFieldTextDidChangeNotification, object: nil)
+        // which device am I running on?
+        // and please generate device orientation notifcations
+        device = UIDevice.currentDevice()
+        device.beginGeneratingDeviceOrientationNotifications()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceRotation:", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
-    func myObserver(sender : AnyObject) {
-        //println("myObserver \(sender)")
+    func deviceRotation(sender : AnyObject) {
+        if debug {
+            println("deviceRotation")
+//            println("orientation = \(device.orientation)")
+        }
     }
     
+    func kprint(str : String) {
+        if debug {
+            println(str)
+        }
+    }
+
     /*
      * viewDidLoad
      */
@@ -98,7 +118,9 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
      * addImageFromPicker
      */
     func addImageFromPicker() {
-        println("addImageFromPicker")
+        if debug {
+            println("addImageFromPicker")
+        }
         presentViewController(self.imagePicker, animated: true, completion: nil)
     }
     
@@ -110,13 +132,15 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
         // UIImagePickerControllerReferenceURL
         // UIImagePickerControllerMediaMetadata
         
-        for i in info {
-            println("\(i)\n")
+        if debug {
+            for i in info {
+                println("\(i)\n")
+            }
         }
 
         let metadata: AnyObject? = info[UIImagePickerControllerReferenceURL]
-        println("metadata = \(metadata)")
         person.imageURL = metadata as? String
+        
         imageButton.setImage(image, forState: UIControlState.Normal)
         imageButton.setImage(image, forState: UIControlState.Highlighted)
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
@@ -129,35 +153,50 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
      * If we touch outside of a text field then stop editing, keyboard hides
      */
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
-//        println("\(touches)")
         self.view.endEditing(true)
     }
     
     func textFieldDidBeginEditing(textField: UITextField!) {
-        println("did begin editing")
-        println("view.bounds = \(view.bounds)")
+
+        kprint("did begin editing")
+        kprint("keyboardHeight = \(keyboardHeight)")
+        kprint("yPadding = \(yPadding)")
+//        kprint("view.bounds = \(view.bounds)")
+        kprint("view.frame.height = \(view.frame.height)")
+        kprint("textField.frame.origin.y = \(textField.frame.origin.y)")
         
-        // if .y is below the keyboard then change the bounds
+        // if textField is below the keyboard then change the view bounds so we can see the textField
         
-        boundsModified = true
+        var overTheLine = Double(self.view.frame.height) - Double(keyboardHeight) - Double(yPadding)
+        kprint("overTheLine = \(overTheLine)")
         
-        var x = self.view.bounds.origin.x
-        var y = self.view.bounds.origin.y + yConstant
-        var width = self.view.bounds.width
-        var height = self.view.bounds.height
-        
-        UIView.animateWithDuration(0.3) {
-            self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+        if ( Double(textField.frame.origin.y) > overTheLine ) {
+            kprint("****")
+            boundsModified = true
+            
+            var x = self.view.bounds.origin.x
+//            var y = self.view.bounds.origin.y + getYPadding()
+            boundsOffset = Int(textField.frame.origin.y) - Int(overTheLine)
+            var y = self.view.bounds.origin.y + boundsOffset
+            var width = self.view.bounds.width
+            var height = self.view.bounds.height
+            
+            UIView.animateWithDuration(0.3) {
+                self.view.bounds = CGRect(x: x, y: y, width: width, height: height)
+            }
         }
     }
     
     func textFieldDidEndEditing(textField: UITextField!) {
-        println("did end editing")
-        println("view.bounds = \(view.bounds)")
-        
+
+        kprint("did end editing")
+        kprint("view.bounds = \(view.bounds)")
+        kprint("textField.frame.origin.y = \(textField.frame.origin.y)")
+    
         if (boundsModified) {
             var x = self.view.bounds.origin.x
-            var y = self.view.bounds.origin.y - yConstant
+//            var y = self.view.bounds.origin.y - getYPadding()
+            var y = self.view.bounds.origin.y - boundsOffset
             var width = self.view.bounds.width
             var height = self.view.bounds.height
             
