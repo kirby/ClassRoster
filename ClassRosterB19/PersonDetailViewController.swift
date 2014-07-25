@@ -17,6 +17,10 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
     @IBOutlet weak var githubHandle: UITextField!
     @IBOutlet weak var imageButton: UIButton!
     
+    // Constraints
+    @IBOutlet weak var constraintButtonCenterX: NSLayoutConstraint!
+    
+    // + add person to roster button
     @IBAction func ImagePicker(sender: UIButton) {
         addImageFromPicker()
     }
@@ -37,19 +41,24 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate, UINavig
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
-        //self.imageViewController = PhotoViewController(coder: aDecoder)
         // which device am I running on?
         // and please generate device orientation notifcations
         device = UIDevice.currentDevice()
         device.beginGeneratingDeviceOrientationNotifications()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceRotation:", name: UIDeviceOrientationDidChangeNotification, object: nil)
+        // if this is an iPad - lay it out differently
+        if (device.name.hasPrefix("iPad")) {
+            kprint("iPad detected")
+        }
     }
     
+    // We know the device was rotated, let's modify constraints as needed
     func deviceRotation(sender : AnyObject) {
-        if debug {
-            println("deviceRotation")
-//            println("orientation = \(device.orientation)")
+        kprint("deviceRotation")
+        if (device.orientation.isLandscape) {
+            kprint("landscape")
+        } else if (device.orientation.isPortrait) {
+            kprint("portrait")
         }
     }
     

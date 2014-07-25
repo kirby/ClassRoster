@@ -115,12 +115,34 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vX-Ja-D3p">
                                 <rect key="frame" x="260" y="40" width="80" height="80"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="17Z-hU-xCk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="GMR-11-9lV"/>
+                                    <constraint firstAttribute="height" constant="125" id="JEK-tv-iFW"/>
+                                    <constraint firstAttribute="width" constant="125" id="iZh-8m-Cc4"/>
                                     <constraint firstAttribute="width" constant="80" id="ntJ-Wv-Mf2"/>
                                     <constraint firstAttribute="height" constant="80" id="yxN-Lo-m4H"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="silhouette.jpeg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="17Z-hU-xCk"/>
+                                        <exclude reference="GMR-11-9lV"/>
+                                        <exclude reference="JEK-tv-iFW"/>
+                                        <exclude reference="iZh-8m-Cc4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="17Z-hU-xCk"/>
+                                        <exclude reference="GMR-11-9lV"/>
+                                        <include reference="JEK-tv-iFW"/>
+                                        <include reference="iZh-8m-Cc4"/>
+                                        <exclude reference="ntJ-Wv-Mf2"/>
+                                        <exclude reference="yxN-Lo-m4H"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="150" y="120" width="100" height="100"/>
                                 </variation>
@@ -170,25 +192,57 @@
                             <constraint firstItem="Gmk-Ik-xq5" firstAttribute="leading" secondItem="COe-XF-awH" secondAttribute="leading" id="16E-Hd-x3x"/>
                             <constraint firstItem="UQv-Io-Rwm" firstAttribute="top" secondItem="0vX-Ja-D3p" secondAttribute="bottom" constant="8" id="7eD-k2-VCU"/>
                             <constraint firstItem="0vX-Ja-D3p" firstAttribute="top" secondItem="ts7-qe-jZB" secondAttribute="bottom" id="AeQ-2L-FXf"/>
+                            <constraint firstAttribute="trailing" secondItem="UQv-Io-Rwm" secondAttribute="trailing" constant="8" id="EPL-M5-mV2"/>
                             <constraint firstAttribute="centerX" secondItem="Q0v-hg-HW5" secondAttribute="centerX" id="G5f-y4-AgU"/>
                             <constraint firstAttribute="centerX" secondItem="0vX-Ja-D3p" secondAttribute="centerX" id="INZ-ce-UtJ"/>
+                            <constraint firstItem="0vX-Ja-D3p" firstAttribute="leading" secondItem="aJC-NM-gsE" secondAttribute="leading" constant="10" id="JEh-tB-ffK"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="top" secondItem="ts7-qe-jZB" secondAttribute="bottom" constant="20" symbolic="YES" id="OBR-Si-EUg"/>
                             <constraint firstAttribute="centerX" secondItem="UQv-Io-Rwm" secondAttribute="centerX" id="R6J-iv-aLN"/>
                             <constraint firstItem="COe-XF-awH" firstAttribute="top" secondItem="Gmk-Ik-xq5" secondAttribute="bottom" constant="8" id="RDT-mh-7dt"/>
+                            <constraint firstItem="UQv-Io-Rwm" firstAttribute="top" secondItem="0vX-Ja-D3p" secondAttribute="bottom" constant="8" id="e5m-Cn-riX"/>
                             <constraint firstItem="0vX-Ja-D3p" firstAttribute="top" secondItem="ts7-qe-jZB" secondAttribute="bottom" constant="20" id="eFF-lB-Q1S"/>
                             <constraint firstItem="Q0v-hg-HW5" firstAttribute="top" secondItem="COe-XF-awH" secondAttribute="bottom" constant="8" id="gSV-8b-aIS"/>
                             <constraint firstAttribute="centerX" secondItem="Gmk-Ik-xq5" secondAttribute="centerX" id="hqp-8Z-Vhq"/>
                             <constraint firstItem="Gmk-Ik-xq5" firstAttribute="leading" secondItem="UQv-Io-Rwm" secondAttribute="leading" id="knl-48-W5b"/>
+                            <constraint firstAttribute="trailing" secondItem="Q0v-hg-HW5" secondAttribute="trailing" constant="8" id="kxi-0C-KYQ"/>
+                            <constraint firstAttribute="trailing" secondItem="COe-XF-awH" secondAttribute="trailing" constant="8" id="lff-Xq-cP4"/>
                             <constraint firstAttribute="centerX" secondItem="COe-XF-awH" secondAttribute="centerX" id="ohY-Zc-Zfa"/>
+                            <constraint firstAttribute="trailing" secondItem="Gmk-Ik-xq5" secondAttribute="trailing" constant="8" id="qj7-gC-TzG"/>
                             <constraint firstItem="Gmk-Ik-xq5" firstAttribute="leading" secondItem="Q0v-hg-HW5" secondAttribute="leading" id="r0p-Kj-A7I"/>
                             <constraint firstItem="Gmk-Ik-xq5" firstAttribute="top" secondItem="UQv-Io-Rwm" secondAttribute="bottom" constant="8" id="tYn-Q1-F4k"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="AeQ-2L-FXf"/>
+                                <exclude reference="JEh-tB-ffK"/>
+                                <exclude reference="EPL-M5-mV2"/>
+                                <exclude reference="OBR-Si-EUg"/>
+                                <exclude reference="e5m-Cn-riX"/>
+                                <exclude reference="qj7-gC-TzG"/>
+                                <exclude reference="lff-Xq-cP4"/>
+                                <exclude reference="kxi-0C-KYQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="INZ-ce-UtJ"/>
+                                <include reference="JEh-tB-ffK"/>
+                                <exclude reference="7eD-k2-VCU"/>
+                                <include reference="EPL-M5-mV2"/>
+                                <include reference="OBR-Si-EUg"/>
+                                <exclude reference="R6J-iv-aLN"/>
+                                <exclude reference="e5m-Cn-riX"/>
+                                <exclude reference="hqp-8Z-Vhq"/>
+                                <include reference="qj7-gC-TzG"/>
+                                <include reference="lff-Xq-cP4"/>
+                                <exclude reference="ohY-Zc-Zfa"/>
+                                <exclude reference="G5f-y4-AgU"/>
+                                <include reference="kxi-0C-KYQ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="constraintButtonCenterX" destination="INZ-ce-UtJ" id="bga-Tg-YNY"/>
                         <outlet property="firstNameText" destination="UQv-Io-Rwm" id="myo-gr-QOP"/>
                         <outlet property="githubHandle" destination="COe-XF-awH" id="AV0-nU-g1i"/>
                         <outlet property="imageButton" destination="0vX-Ja-D3p" id="J72-cZ-NE9"/>
