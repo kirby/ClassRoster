@@ -71,6 +71,10 @@ class PersonViewController: UIViewController, UITableViewDataSource, UITableView
                 roster.append(person)
             }
         }
+        
+        let app = UIApplication.sharedApplication()
+        app.applicationIconBadgeNumber = roster.count
+        
         return roster
     }
     
